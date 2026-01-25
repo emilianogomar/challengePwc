@@ -1,0 +1,3 @@
+sqlmodel
+pydantic
+pandas
