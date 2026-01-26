@@ -1,3 +1,5 @@
 sqlmodel
 pydantic
 pandas
+fastapi
+uvicorn
