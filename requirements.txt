@@ -3,3 +3,4 @@ pydantic
 pandas
 fastapi
 uvicorn
+typesense
