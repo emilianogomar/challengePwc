@@ -3,6 +3,13 @@ from sqlmodel import Session
 from app.data_access.database import engine
 from app.data_access.models import DimProduct,DimCustomer,DimCountry,DimChannel,DimDate, FactSales
 
+COUNTRY_MAP = {
+    "United Kingdom": "UK",
+    "France": "FR",
+    "Germany": "DE",
+    "Spain": "ES"
+}
+
 def run_silver(csv_path: str):
     df = pd.read_csv(csv_path)
 
@@ -12,10 +19,10 @@ def run_silver(csv_path: str):
     with Session(engine) as session:
         for _, r in df.iterrows():
             # COUNTRY
-            country_id = r["Country"].upper().replace(" ", "_")
+            country_id = COUNTRY_MAP.get(str(r["Country"]), "OTHER")
             session.merge(DimCountry(
             country_id=country_id,
-            country_name=r["Country"]
+            country_name=str(r["Country"])
             ))
             # PRODUCT
             session.merge(DimProduct(
