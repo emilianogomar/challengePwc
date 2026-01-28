@@ -1,22 +1,28 @@
 from app.data_access.vector_db import client
 
 
-def search(q: str):
+def search(q: str,source: str):
     c = client()
 
-    products_res = c.collections["products"].documents.search({
-        "q": q,
-        "query_by": "description"
-    })
+    results = {}
 
-    docs_res = c.collections["documents"].documents.search({
-        "q": q,
-        "query_by": "text",
-        "filter_by": "source:pdf"
-    })
+    if source in ("all", "product"):
+        results["products"] = c.collections["products"].documents.search({
+            "q": q,
+            "query_by": "description",
+            "filter_by": "source:=product"
+        })
+
+
+    if source in ("all", "pdf"):
+        results["documents"] = c.collections["documents"].documents.search({
+            "q": q,
+            "query_by": "text",
+            "filter_by": "source:=pdf"
+        })
 
     return {
         "query": q,
-        "products": products_res["hits"],
-        "documents": docs_res["hits"]
+        "filter": source,
+        "results": results
     }

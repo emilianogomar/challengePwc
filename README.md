@@ -111,7 +111,7 @@ Typesense is used as a **Vector Database** to enable fast and flexible search ca
 ### Search Capabilities
 
 * Full-text / semantic search
-* Filtering (e.g., by country or entity type)
+* Filtering (e.g., by source)
 
 The vector search complements relational queries and enables discovery use cases not suitable for SQL alone.
 
@@ -165,6 +165,23 @@ The project follows a **Layered Architecture**, ensuring separation of concerns:
 * `etl/` – ETL logic for Bronze, Silver, and Gold layers
 
 Domain entities are intentionally **decoupled** from ORM/database models.
+
+---
+
+## Optional Features
+
+* **Repository Pattern** – API → Service → Repository → DB
+* **API Versioning** 
+
+The API exposes versioned endpoints to support backward compatibility
+and progressive feature evolution.
+
+- **v1** provides a simplified search implementation over structured product data.
+- **v2** extends search capabilities to include unstructured PDF documents,
+  allowing filtered searches across multiple data sources.
+
+This approach enables non-breaking changes and demonstrates production-ready API design.
+
 
 ---
 

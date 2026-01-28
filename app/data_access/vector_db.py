@@ -16,7 +16,8 @@ def create_products_collection():
         "name": "products",
         "fields": [
             {"name": "product_id", "type": "string"},
-            {"name": "description", "type": "string"}
+            {"name": "description", "type": "string"},
+            {"name": "source", "type": "string", "facet": True}
         ]
     }
 

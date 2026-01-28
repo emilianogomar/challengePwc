@@ -10,7 +10,7 @@ def ensure_collection():
             "fields": [
                 {"name": "id", "type": "string"},
                 {"name": "text", "type": "string"},
-                {"name": "source", "type": "string"},
+                {"name": "source", "type": "string", "facet": True},
                 {"name": "product_id", "type": "string"}
             ]
         })
