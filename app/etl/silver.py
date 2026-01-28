@@ -7,7 +7,18 @@ COUNTRY_MAP = {
     "United Kingdom": "UK",
     "France": "FR",
     "Germany": "DE",
-    "Spain": "ES"
+    "Spain": "ES",
+    "Poland": "PL",
+    "EIRE": "EI",
+    "Netherlands": "ND",
+    "Portugal": "PT",
+    "Nigeria": "NG",
+    "Denmark": "DM",
+    "Japan": "JP",
+    "Australia": "AS",
+    "Belgium": "BG",
+    "USA": "US",
+    "Channel Islands": "CI"
 }
 
 def run_silver(csv_path: str):

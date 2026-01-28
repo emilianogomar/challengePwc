@@ -18,3 +18,4 @@ def sales_by_product():
 def customer_lifetime_value():
     df = pd.read_sql_table("gold_customer_lifetime_value", engine)
     return df.to_dict(orient="records")
+
