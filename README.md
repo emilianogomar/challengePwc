@@ -55,7 +55,7 @@ This dataset is sufficiently complex to support:
 
 Optional unstructured data (PDFs / text documents) can be added to the Bronze layer and indexed in the vector database.
 
-Synthetic data generation (e.g., via Faker or SVD) is supported but not required.
+File with data is on /archive folder.
 
 ---
 
