@@ -10,15 +10,17 @@ def ensure_collection():
             "fields": [
                 {"name": "id", "type": "string"},
                 {"name": "text", "type": "string"},
-                {"name": "source", "type": "string"}
+                {"name": "source", "type": "string"},
+                {"name": "product_id", "type": "string"}
             ]
         })
 
-def index_pdf(pdf_id: str, text: str):
+def index_pdf(pdf_id: str, product_id: str, text: str):
     ensure_collection()
     ts = client()
     ts.collections[COLLECTION].documents.upsert({
         "id": pdf_id,
         "text": text,
-        "source": "pdf"
+        "source": "pdf",
+        "product_id": product_id
     })

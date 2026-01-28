@@ -8,10 +8,11 @@ router = APIRouter(prefix="/raw/pdf", tags=["raw-pdf"])
 @router.post("")
 def upload_pdf(
     raw_id: str,
+    product_id: str,
     file: UploadFile = File(...),
     user: str = Depends(get_current_user)
 ):
-    ingest_pdf(raw_id, file)
+    ingest_pdf(raw_id, product_id, file)
     return {"status": "uploaded", "id": raw_id}
 
 
